@@ -1,6 +1,6 @@
 git init
     -initializes a new git directory
-stupid edit
+
 git clone
     -clones a repo, only used for the first time
 
