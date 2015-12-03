@@ -1,0 +1,21 @@
+git init
+
+git clone
+
+git add
+
+git commit
+
+git pull
+   
+git push
+
+git status
+
+git log 
+
+git checkout HEAD
+
+git reset HEAD
+
+git reset SHA
