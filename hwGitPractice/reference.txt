@@ -1,21 +1,33 @@
 git init
+    -initializes a new git directory
 
 git clone
+    -clones a repo, only used for the first time
 
 git add
+    -add a file to be tracked by git
 
 git commit
+    -commits changes to the staging area
 
 git pull
+    -pulls the latest version of the repo
    
 git push
+    -pushes commits to github
 
 git status
+    -shows changes that has not been committed
 
 git log 
+    -shows list of commits
 
 git checkout HEAD
+    -reverts file back to latest commit
 
 git reset HEAD
+    -reverts file back one commit before HEAD
 
 git reset SHA
+    -reverts file back to previous commit, you tell it which commit by giving
+     it the first 7 characters of that commit's SHA key
