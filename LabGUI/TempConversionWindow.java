@@ -28,6 +28,11 @@ public class TempConversionWindow extends JFrame implements ActionListener {
 
 	outputMessage = new JLabel();
 
+	pane.add(inputField);
+	pane.add(toCelciusButton);
+	pane.add(toFahrenheitButton);
+	pane.add(outputMessage);
+	
     }
 
     public static double toCelcius(double temp) {
@@ -41,28 +46,23 @@ public class TempConversionWindow extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent action) {
 	String event = action.getActionCommand();
-	String tempToConvert;
+	double tempToConvert;
 	double convertedTemp;
-	if ( event.equals("toC") ) {
-	    try {
-		convertedTemp = toCelcius(tempToConvert.parseInt());
-		outputMessage.setText( (String)(convertedTemp));
-	    }
-	    catch (Exception e) {
+	try {
+	    tempToConvert = Double.parseDouble(inputField.getText());
+	} catch (Exception e) {
 	    outputMessage.setText("Invalid temperature format");
-	    }
- 
-	} else if ( events.equals("toF") ) {
-	    try {
-		convertedTemp = toFahrenheit(tempToConvert.parseInt());
-		outputMessage.setText( (String)(convertedTemp) );
-	    } catch (Exception e) {
-		outputMessage.setText("Invalid temperature format");
-	    }
- 
+	    return;
+	}	
+	if ( event.equals("toC") ) {
+	    convertedTemp = toCelcius(tempToConvert);
+	    outputMessage.setText(Double.toString(convertedTemp));
+	} else if ( event.equals("toF") ) {
+	    convertedTemp = toFahrenheit(tempToConvert);
+	    outputMessage.setText(Double.toString(convertedTemp) ); 
 	}
-
-	
     }
+	
+    
 
 } 
