@@ -9,7 +9,7 @@ public class BarCode {
     public BarCode(String zip) {
 	_zip = zip;
 	zipDigits = _zip.toCharArray();
-	if (!isValidZip(zip)) {
+	if (!isValidZip()) {
 	    throw new IllegalArgumentException();
 	}
 	_checkDigit = checkSum();
@@ -19,8 +19,8 @@ public class BarCode {
 	this(x._zip);
     }
 
-    private boolean isValidZip(String zip) {
-	if (zip.length() != 5) {
+    private boolean isValidZip() {
+	if (_zip.length() != 5) {
 	    return false;
 	} 
 	for (char digit : zipDigits) {
