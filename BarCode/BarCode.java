@@ -39,7 +39,7 @@ public class BarCode {
 
     public static void main(String[] args) {
 	BarCode b1 = new BarCode("11228");
-	System.out.println(b1.isValidZip("11228"));
+	System.out.println(b1.checkSum());
     }
 
 }
