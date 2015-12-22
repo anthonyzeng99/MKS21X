@@ -51,9 +51,4 @@ public class BarCode {
 	return output;
     }
 
-    public static void main(String[] args) {
-	BarCode b1 = new BarCode("10282");
-	System.out.println(b1);
-    }
-
 }
