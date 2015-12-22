@@ -4,12 +4,14 @@ public class BarCode {
     private String _zip;
     private static  String[] BARCODES = {"||:::",":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:","|:|::"};
     //             0       1       2       3       4       5       6       7       8       9    
+    private char[] zipDigits;
 
     public BarCode(String zip) {
+	_zip = zip;
+	zipDigits = _zip.toCharArray();
 	if (!isValidZip(zip)) {
 	    throw new IllegalArgumentException();
 	}
-	_zip = zip;
 	_checkDigit = checkSum();
     }
 
@@ -18,11 +20,9 @@ public class BarCode {
     }
 
     private boolean isValidZip(String zip) {
-	char[] zipDigits;
 	if (zip.length() != 5) {
 	    return false;
 	} 
-	zipDigits = zip.toCharArray();
 	for (char digit : zipDigits) {
 	    if (!Character.isDigit(digit)) {
 		return false;
@@ -32,7 +32,6 @@ public class BarCode {
     } 
 
     private int checkSum() {
-	char[] zipDigits = _zip.toCharArray();
 	int digitSum = 0;
 	for (char Digit : zipDigits) {
 	    digitSum += Character.getNumericValue(Digit);
@@ -40,9 +39,21 @@ public class BarCode {
 	return digitSum % 10;
     }
 
+    public String toString() {
+        String output = "";
+	output += _zip;
+	output += _checkDigit;
+	output += " |";
+	for (char digit : zipDigits) {
+	    output += BARCODES[Character.getNumericValue(digit)];
+	} 
+	output += BARCODES[_checkDigit] + "|";
+	return output;
+    }
+
     public static void main(String[] args) {
-	BarCode b1 = new BarCode("11228");
-	System.out.println(b1.checkSum());
+	BarCode b1 = new BarCode("10282");
+	System.out.println(b1);
     }
 
 }
