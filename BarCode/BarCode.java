@@ -6,6 +6,9 @@ public class BarCode {
     //             0       1       2       3       4       5       6       7       8       9    
 
     public BarCode(String zip) {
+	if (!isValidZip(zip)) {
+	    throw new IllegalArgumentException();
+	}
 	_zip = zip;
 	_checkDigit = checkSum();
     }
