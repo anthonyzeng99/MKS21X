@@ -51,4 +51,8 @@ public class BarCode {
 	return output;
     }
 
+    public boolean equals(Object other) {
+	return (this == other) || ( (other instanceof BarCode) && ( ((BarCode) other)._zip.equals(this._zip)));
+    }
+
 }
