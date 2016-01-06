@@ -51,6 +51,20 @@ public class Sorts{
 	} 
     }
 
+
+    public static void bubbleSort(int[] data) {
+	int hold;                                                                                    
+	for (int sortedIndex = data.length; sortedIndex > 0; sortedIndex--) {                        
+            for (int swapIndex = 0; swapIndex < sortedIndex-1; swapIndex++) {                        
+                if (data[swapIndex] > data[swapIndex+1]) {                                           
+                    hold = data[swapIndex];                                                          
+                    data[swapIndex] = data[swapIndex + 1];                                           
+                    data[swapIndex + 1] = hold;                                                      
+                }                                                                                    
+            }                                                                                        
+        }          
+    }
+
     
     public static void main(String[] args) {
 	int[] a1 = {8,6,7,5,3,0,9};
